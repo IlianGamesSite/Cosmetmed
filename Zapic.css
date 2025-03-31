@@ -1,0 +1,231 @@
+
+/* Общие стили */
+body {
+    background-color: #fcf4dc;
+    color: black;
+    margin: 0;
+    font-family: Georgia, serif;
+}
+
+/* Скрытые элементы */
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Шапка (header) */
+header {
+    background: pink;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+/* Заголовок в шапке */
+header h1 {
+    font-size: 80px; /* Увеличиваем текст в хедере */
+    font-family: Georgia, serif;
+    color: black;
+    margin-left: 50px;
+}
+.header-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 155px; /* Двигаем правее */
+    width: max-content;
+}
+
+
+/* Кнопка меню (сделаем более компактной) */
+/* Кнопка меню (сделаем ещё уже) */
+/* Кнопка меню (еще меньше) */
+#menu-btn {
+    padding: 10px 15px; /* Компактный размер */
+    background: #fcf4dc;
+    border: none;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 100px; /* Уменьшил ширину */
+    text-align: center;
+}
+
+#menu-btn:hover {
+    transform: scale(1.1);
+    background-color: #f5e1c8;
+}
+
+
+
+
+/* Меню */
+#menu {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    list-style: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Показываем меню */
+#menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+/* Стили элементов меню */
+#menu li {
+    padding: 8px 0;
+}
+
+#menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+/* Контейнер формы */
+.form-container {
+    width: 90%;
+    max-width:400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Поля ввода и кнопки */
+input, select, button {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Стили для заголовков */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стили для меток */
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Текст и элементы формы */
+input[type="text"], input[type="tel"], select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Стили для кнопки */
+button {
+    background-color: pink;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f5e1c8;
+}
+
+/* Центрированный текст */
+.center-text {
+    text-align: center;
+    font-size: 24px;
+    font-family: Georgia, serif;
+}
+
+/* Контент */
+.content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* Контейнер для изображения и текста */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Картинка */
+.image-container img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Текст */
+.text {
+    font-size: 32px;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Стили для заголовка "Услуги" */
+#service-header {
+    font-size: 40px; /* Увеличиваем текст в разделе "Услуги" */
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    margin-top: 30px;
+}
+
+/* Адаптивные стили для мобильных */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* Уменьшаем кнопку меню для мобильных */
+    #menu-btn {
+        font-size: 14px;
+        padding: 5px 15px; /* Уменьшаем ширину на мобильных */
+    }
+
+    /* Уменьшаем поля ввода */
+    input, select, button {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    /* Увеличиваем шрифт в заголовке на мобильных устройствах */
+    #service-header {
+        font-size: 36px;
+    }
+}

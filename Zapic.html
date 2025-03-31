@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на услугу</title>
+    <link rel="stylesheet" href="Zapic.css">
+</head>
+<body>
+
+    <!-- Хедер с меню -->
+    <header>
+        <button id="menu-btn">Меню</button>
+        <div class="header-title" style="font-size: 50px;">Запись</div>
+        <ul id="menu">
+            <li><a href="index.html">Информация о косметологе</a></li>
+            <li><a href="main.html">Услуги</a></li>
+            <li><a href="price.html">Прайс</a></li>
+            <li><a href="Zapic.html">Запись</a></li>
+        </ul>
+    </header>
+
+    <!-- Форма записи -->
+    <div class="form-container">
+        <h2>Запишитесь на услугу</h2>
+
+        <!-- Ссылка на Google Документ -->
+        <p><b>Актуальное расписание:</b> 
+            <a href="https://docs.google.com/document/d/1wwoY-xmo68m_yXPUqQbVrEAN1zGNCTWrAIisa3DMwDA/edit?usp=sharing" target="_blank">
+                Смотреть доступные даты
+            </a>
+        </p>
+
+        <form id="appointmentForm">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="service">На какую услугу:</label>
+            <input type="text" id="service" name="service" required>
+
+            <!-- Выбор даты -->
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+
+            <!-- Выбор времени -->
+            <label for="time">Время:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="button" onclick="sendToTelegram()">Записаться</button>
+        </form>
+    </div>
+
+    <script>
+        function sendToTelegram() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let service = document.getElementById("service").value;
+            let date = document.getElementById("date").value;
+            let time = document.getElementById("time").value;
+
+            let message = `📌 Новая запись!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💆 Услуга: ${service}\n📅 Дата: ${date}\n⏰ Время: ${time}`;
+
+            let telegramToken = "7734205904:AAFg1Fzp0G6zvKbPp4nYSRHgyLgeI9GfKLc"; // Вставь сюда TOKEN бота
+            let chatId = "1169450452"; // Вставь сюда свой Chat ID
+
+            let url = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        alert("Запись отправлена!");
+                    } else {
+                        alert("Ошибка при отправке!");
+                    }
+                })
+                .catch(error => console.error("Ошибка:", error));
+        }
+    </script>
+
+
+    <script src="script.js"></script>
+    </body>
+</html>
+
+
+
